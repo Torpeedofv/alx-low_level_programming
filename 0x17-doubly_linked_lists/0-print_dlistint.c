@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "lists.h"
 
-/*
+/**
  * print_dlistint - Prints all the elements of a dlistint_t list.
  * @h: a pointer to the head of the dlistint_t list.
  *
