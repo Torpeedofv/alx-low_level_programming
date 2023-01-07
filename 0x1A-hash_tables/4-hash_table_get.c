@@ -3,12 +3,14 @@
 #include <stdio.h>
 #include "hash_tables.h"
 
-/*
- *hash_table_get: a function that retrieves the value of a key
- *@ht - a hash table
- *@key - the key to a value
+/**
+ * hash_table_get - Retrieve the value associated with
+ *                  a key in a hash table.
+ * @ht: A pointer to the hash table.
+ * @key: The key to get the value of.
  *
- * Return - the value of the specified key
+ * Return: If the key cannot be matched - NULL.
+ *         Otherwise - the value associated with key in ht.
  */
 
 char *hash_table_get(const hash_table_t *ht, const char *key)
@@ -16,15 +18,15 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	unsigned long int index;
 	hash_node_t *node;
 
-	if (ht == NULL || strlen(key) == 0)
+	if (ht == NULL || strlen(key) == 0 || key == NULL)
 		return (NULL);
 	index = key_index((unsigned char *)key, ht->size);
+	if (index >= ht->size)
+		return (NULL);
 	node = ht->array[index];
-	while (node)
+	while (node && (strcmp(node->key, key) != 0))
 	{
-		if (strcmp(node->key, key) == 0)
-			return (node->value);
 		node = node->next;
 	}
-	return (node->value);
+	return ((node == NULL) ? NULL : node->value);
 }
