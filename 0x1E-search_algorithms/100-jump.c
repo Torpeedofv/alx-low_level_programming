@@ -3,21 +3,6 @@
 #include "search_algos.h"
 #include <math.h>
 /**
- * min - finds the smallest of its arguments
- * @a: one of the arguments to compare
- * @b: of the arguments to compare
- * Return: the smallest argument
- */
-size_t min(size_t a, size_t b)
-{
-	if (a < b)
-	{
-		return (a);
-	}
-	return (b);
-}
-
-/**
  * jump_search - searches for a value in a sorted array of integers
  * @array: a pointer to the first element of the array
  * @size: is the number of elements in array
@@ -28,7 +13,7 @@ int jump_search(int *array, size_t size, int value)
 {
 	size_t jump = sqrt(size), previous = 0, i = 0;
 
-	while (array[min(jump, size) - 1] < value)
+	if (value while (array[min(jump, size) - 1] < value)
 	{
 		previous = jump;
 		jump += sqrt(size);
