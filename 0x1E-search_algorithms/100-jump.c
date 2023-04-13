@@ -32,19 +32,15 @@ int jump_search(int *array, size_t size, int value)
 	{
 		previous = jump;
 		jump += sqrt(size);
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 		if (previous >= size)
 		{
 			return (-1);
-		}
-		for (i = 0; i < jump; i++)
-		{
-			printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 		}
 	}
 	while (array[previous] < value)
 	{
 		previous++;
-		printf("Value test checked array[%ld] = [%d]\n", i, array[i]);
 		if (previous == min(jump, size))
 		{
 			return (-1);
